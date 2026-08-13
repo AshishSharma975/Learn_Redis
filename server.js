@@ -54,6 +54,7 @@ const connectToMongoDB = async () =>{
     try{
         await mongoose.connect(process.env.MONGO_URI)
         console.log("Connected to MongoDB")
+        await User.collection.dropIndexes().catch(() => {})
     }catch(error){
         console.log(error.message)
         process.exit(1)
