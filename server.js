@@ -12,11 +12,31 @@ app.use(express.json())
 app.use(morgan("dev"))
 
 //route
-app.get("/users", async (req, res) => {
+app.get("/user/:id", async (req, res) => {
     try {
-        const users = await User.find()
-        return res.status(200).json(users)
+        const users = await User.findOne({
+            _id: req.params.id
+        })
+        return res.status(200).json({
+            message:"fetched the user from the database",
+            user:users
+        })
     } catch (error) {
+        return res.status(500).json({ message: error.message })
+    }
+})
+
+app.post("/user", async (req,res)=>{
+    try{
+        const user=await User.create({
+            name:req.body.name,
+            email:req.body.email
+        })
+        return res.status(201).json({
+            message:"user created successfully",
+            user:user
+        })
+    }catch(error){
         return res.status(500).json({ message: error.message })
     }
 })
