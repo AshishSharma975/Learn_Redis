@@ -14,9 +14,17 @@ app.use(morgan("dev"))
 //route
 app.get("/user/:id", async (req, res) => {
     try {
+        const userFromCache = await redis.get(`user:${req.params.id}`)
+        if(userFromCache){
+            return res.status(200).json({
+                message:"fetched the user from the cache",
+                user:JSON.parse(userFromCache)
+            })
+        }
         const users = await User.findOne({
             _id: req.params.id
         })
+        await redis.set(`user:${req.params.id}`, JSON.stringify(users),"EX",3600)
         return res.status(200).json({
             message:"fetched the user from the database",
             user:users
