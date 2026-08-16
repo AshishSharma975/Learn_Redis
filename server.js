@@ -41,7 +41,7 @@ app.post("/user", async (req,res)=>{
             email:req.body.email
         })
         return res.status(201).json({
-            message:"user created successfully",
+            message:"user is created successfully",
             user:user
         })
     }catch(error){
