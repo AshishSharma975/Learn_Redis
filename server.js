@@ -65,7 +65,7 @@ const connectToMongoDB = async () =>{
 const redis = new Redis(process.env.REDIS_URI)
 
 redis.once("ready", () => {
-    console.log("Connected to Redis")
+    console.log("Connected to the Redis")
 })
 
 connectToMongoDB()
