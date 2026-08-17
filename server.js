@@ -26,7 +26,7 @@ app.get("/user/:id", async (req, res) => {
         })
         await redis.set(`user:${req.params.id}`, JSON.stringify(users),"EX",3600)
         return res.status(200).json({
-            message:"fetched the user from the database",
+            message:"fetched the user from the database...",
             user:users
         })
     } catch (error) {
