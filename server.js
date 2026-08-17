@@ -17,7 +17,7 @@ app.get("/user/:id", async (req, res) => {
         const userFromCache = await redis.get(`user:${req.params.id}`)
         if(userFromCache){
             return res.status(200).json({
-                message:"fetched the user from the cache",
+                message:"fetched the user from the cache...",
                 user:JSON.parse(userFromCache)
             })
         }
