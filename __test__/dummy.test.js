@@ -1,0 +1,8 @@
+import { sum } from "../utils.js";
+
+describe("sum function", () => {
+
+    test('adds 1+2 to rqual 3', () => {
+        expect(sum(1, 2)).toBe(3);
+    })
+})
