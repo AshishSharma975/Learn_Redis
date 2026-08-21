@@ -50,6 +50,18 @@ app.post("/user", async (req,res)=>{
 })
 
 
+app.get("/",async (req,res)=>{
+    let sum = 0
+    for(let i = 0; i < 1000; i++){
+      sum += i;
+    }
+
+    return res.status(200).json({
+        message:"fetched the sum successfully...",
+        sum:sum
+    })
+})
+
 const connectToMongoDB = async () =>{
     try{
         await mongoose.connect(process.env.MONGO_URI)
