@@ -6,20 +6,22 @@ import Redis from "ioredis"
 import { User } from "./models/user.model.js"
 import rateLimit from "express-rate-limit"
 
+import path from "path"
+import { fileURLToPath } from "url"
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const app = express()
 
 //middlewares
 app.use(express.json())
 app.use(morgan("dev"))
 
-
-
-
 // ejs template engine setup
-
 app.set("view engine", "ejs")
-app.set("views","./views")
-app.use(express.static("public"))
+app.set("views", path.join(__dirname, "views"))
+app.use(express.static(path.join(__dirname, "public")))
 
 
 const globalLimiter = rateLimit({
@@ -84,7 +86,11 @@ app.get("/",async (req,res)=>{
     //     message:"fetched the sum successfully...",
     //     sum:sum
     // })
-    return res.render("index")
+    return res.render("index",{
+        username:"cohort user",
+        email:"[EMAIL_ADDRESS]",
+        image:"https://cdn.dribbble.com/users/2455574/screenshots/6531121/media/862e8d69e51b790d535e4b51121a7483.gif"
+    })
 })
 
 const connectToMongoDB = async () =>{
