@@ -13,6 +13,15 @@ app.use(express.json())
 app.use(morgan("dev"))
 
 
+
+
+// ejs template engine setup
+
+app.set("view engine", "ejs")
+app.set("views","./views")
+app.use(express.static("public"))
+
+
 const globalLimiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minute
     limit: 100, // 100 requests per windowMs
@@ -66,15 +75,16 @@ app.post("/user", async (req,res)=>{
 
 
 app.get("/",async (req,res)=>{
-    let sum = 0
-    for(let i = 0; i < 1000; i++){
-      sum += i;
-    }
+    // let sum = 0
+    // for(let i = 0; i < 1000; i++){
+    //   sum += i;
+    // }
 
-    return res.status(200).json({
-        message:"fetched the sum successfully...",
-        sum:sum
-    })
+    // return res.status(200).json({
+    //     message:"fetched the sum successfully...",
+    //     sum:sum
+    // })
+    return res.render("index")
 })
 
 const connectToMongoDB = async () =>{
