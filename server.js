@@ -4,12 +4,27 @@ import morgan from "morgan"
 import mongoose from "mongoose"
 import Redis from "ioredis"
 import { User } from "./models/user.model.js"
+import rateLimit from "express-rate-limit"
 
 const app = express()
 
 //middlewares
 app.use(express.json())
 app.use(morgan("dev"))
+
+
+const globalLimiter = rateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minute
+    limit: 100, // 100 requests per windowMs
+    message: {
+        error: "Too many requests from this IP, please try again later..."
+    },
+    statusCode: 429,
+    standardHeaders: true,
+    legacyHeaders: false
+})
+
+app.use(globalLimiter)
 
 //route
 app.get("/user/:id", async (req, res) => {
