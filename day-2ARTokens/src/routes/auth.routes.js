@@ -1,11 +1,11 @@
 import express from "express";
-import { loginController, registerController } from "../controllers/auth.controller.js";
+import { getAccessTokenController, loginController, registerController } from "../controllers/auth.controller.js";
 
 
 const router = express.Router();
 
 
-router.get("/get-accessToken")
+router.get("/get-accessToken", getAccessTokenController)
 
 router.post("/register",registerController)
 router.post("/login",loginController)

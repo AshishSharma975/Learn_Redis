@@ -56,17 +56,35 @@ const loginController = async (req, res) => {
     }
 }
 
-const getAccessTokenController = async(req, res)=>{
-    const refreshToken = req.cookie.refreshToken;
+const getAccessTokenController = async (req, res) => {
+    try {
+        const refreshToken = req.cookies?.refreshToken;
 
-    if(!refreshToken){
+        if (!refreshToken) {
+            return res.status(401).json({
+                message: "unauthorized request"
+            })
+        }
+
+        const accessToken = await authService.getAccessTokenService(refreshToken);
+
+        res.cookie("accessToken", accessToken, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "lax",
+            maxAge: 10 * 60 * 1000
+        })
+
+        return res.status(200).json({
+            message: "Access token generated"
+        })
+    } catch (error) {
         return res.status(401).json({
-            message:"unathorized request"
+            message: error.message || "unauthorized"
         })
     }
-
-    const result = await getAccessTokenService(refreshToken);
 }
+
 export {
     registerController,
     loginController,
