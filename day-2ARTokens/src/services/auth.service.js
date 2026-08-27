@@ -86,4 +86,8 @@ const LoginService = async(data)=>{
     }
 }
 
-export default {RegisterService,LoginService}
+const getAccessTokenService = async(refreshToken)=>{
+ 
+}
+
+export default {RegisterService,LoginService,getAccessTokenService}

@@ -5,6 +5,8 @@ import { loginController, registerController } from "../controllers/auth.control
 const router = express.Router();
 
 
+router.get("/get-accessToken")
+
 router.post("/register",registerController)
 router.post("/login",loginController)
 

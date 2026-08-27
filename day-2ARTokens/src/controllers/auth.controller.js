@@ -56,7 +56,19 @@ const loginController = async (req, res) => {
     }
 }
 
+const getAccessTokenController = async(req, res)=>{
+    const refreshToken = req.cookie.refreshToken;
+
+    if(!refreshToken){
+        return res.status(401).json({
+            message:"unathorized request"
+        })
+    }
+
+    const result = await getAccessTokenService(refreshToken);
+}
 export {
     registerController,
-    loginController
+    loginController,
+    getAccessTokenController
 }
