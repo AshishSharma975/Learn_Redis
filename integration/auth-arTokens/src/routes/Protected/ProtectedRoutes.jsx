@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router'
 
-const MainLayouts = () => {
+const ProtectedRoutes = () => {
   return (
     <div>
         <Outlet/>
@@ -9,4 +9,4 @@ const MainLayouts = () => {
   )
 }
 
-export default MainLayouts
+export default ProtectedRoutes

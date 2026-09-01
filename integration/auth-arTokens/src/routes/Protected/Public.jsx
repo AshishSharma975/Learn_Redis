@@ -1,7 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router'
-
-const MainLayouts = () => {
+function Public() {
   return (
     <div>
         <Outlet/>
@@ -9,4 +8,4 @@ const MainLayouts = () => {
   )
 }
 
-export default MainLayouts
+export default Public
