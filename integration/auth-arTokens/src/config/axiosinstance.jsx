@@ -12,7 +12,7 @@ export let axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
     (response) => {
         console.log("this is response interceptor -> " ,response)
-        return response  // important step for successful response
+        // return response  // important step for successful response
         // always return response in response interceptor
         // otherwise it will not send data to the component
 
