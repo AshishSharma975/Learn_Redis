@@ -14,7 +14,7 @@ console.log("this is ui app ->",res)
   }
   return (
     <div>
-      <h1 className="bg-red-600">hey golusss...</h1>
+      <h1 className="bg-red-600">hey my lovely golusss...</h1>
       <button onClick={()=>getData()}>Get Data</button>
     </div>
   )
