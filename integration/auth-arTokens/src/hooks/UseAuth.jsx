@@ -28,9 +28,9 @@ export let useAuth = () => {
         password: data.password,
       };
       let res = await axiosInstance.post("/auth/register", payload);
-      console.log("res from register", res);
+      console.log("res from the register", res);
     } catch (error) {
-      console.log("error in register", error);
+      console.log("error in the register", error);
     }
   };
 
