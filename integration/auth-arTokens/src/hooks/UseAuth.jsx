@@ -14,9 +14,9 @@ export let useAuth = () => {
   const onLogin = async (data) => {
     try {
       let res = await axiosInstance.post("/auth/login", data);
-      console.log("res from login", res);
+      console.log("res from the login", res);
     } catch (error) {
-      console.log("error in login", error);
+      console.log("error in the login", error);
     }
   };
 
