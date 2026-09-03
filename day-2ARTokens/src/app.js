@@ -8,13 +8,14 @@ const app = express();
 
 app.use(cors({
     origin:"http://localhost:5173",
-    Credentials: true,
+    credentials: true,
 }))
 app.use(express.json());
 app.use(cookieParser())
 
 app.use('/api/auth',authRoutes)
 app.use('/api/home',homeRoutes)
+
 
 
 export default app;

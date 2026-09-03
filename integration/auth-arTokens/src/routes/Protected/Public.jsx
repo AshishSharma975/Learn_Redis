@@ -4,7 +4,11 @@ import { Outlet, Navigate } from 'react-router'
 function Public() {
 
 
-  let {user} = useSelector((store)=> store.auth)
+  let {user,isLoading} = useSelector((store)=> store.auth)
+
+  if(isLoading){
+    return <div>Loading...</div>
+  }
 
   if(user){
     return <Navigate to="/home"/>
@@ -15,4 +19,4 @@ function Public() {
   )
 }
 
-export default Public
+export default Public 

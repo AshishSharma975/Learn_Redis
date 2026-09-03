@@ -43,7 +43,7 @@ const loginController = async (req, res) => {
             httpOnly: true,
             secure: true,
             sameSite: "lax",
-            maxAge: 10 * 60 * 1000
+            maxAge: 60 * 1000
         })
 
         if (!isUserExist) {
@@ -85,8 +85,16 @@ const getAccessTokenController = async (req, res) => {
     }
 }
 
+const getMeController =(req,res) =>{
+    return res.status(200).json({
+        messsage:"currently logged in user ",
+        isUserExist:req.user
+    })
+}
+
 export {
     registerController,
     loginController,
-    getAccessTokenController
+    getAccessTokenController,
+    getMeController
 }
