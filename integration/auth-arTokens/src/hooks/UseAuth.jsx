@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { axiosInstance } from "../config/axiosinstance";
+import { useDispatch } from "react-redux";
+import { addUser } from "../state/AuthReducer";
 
 export let useAuth = () => {
   let navigate = useNavigate();
+  let dispatch = useDispatch();
 
   const {
     register,
@@ -15,6 +18,7 @@ export let useAuth = () => {
     try {
       let res = await axiosInstance.post("/auth/login", data);
       console.log("res from the login", res);
+     dispatch(addUser({ user: res.data.isUserExist }))
     } catch (error) {
       console.log("error in the login", error);
     }
