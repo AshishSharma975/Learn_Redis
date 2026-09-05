@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-
+import { ModeToggle } from "@/components/toggleTheme.js"
 const Navbar = () => {
   return (
-    <nav className="fixed w-full z-50 top-0 transition-all duration-300 bg-black/40 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+    <nav className="fixed w-full z-50 top-0 transition-all duration-300 bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-black/10 dark:border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
@@ -16,14 +16,14 @@ const Navbar = () => {
           
           {/* Main Navigation Links */}
           <div className="flex items-center space-x-4 md:space-x-8">
-            <Link href="/" className="text-xs md:text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors duration-300">
+            <Link href="/" className="text-xs md:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-300">
               Home
             </Link>
-            <Link href="/products" className="text-xs md:text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors duration-300 relative group">
+            <Link href="/products" className="text-xs md:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-300 relative group">
               Products
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 dark:bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/about" className="text-xs md:text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors duration-300">
+            <Link href="/about" className="text-xs md:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-300">
               About
             </Link>
           </div>
@@ -43,6 +43,7 @@ const Navbar = () => {
                 3
               </span>
             </Link>
+            <div><ModeToggle /></div>
             <div className="hidden md:block w-px h-6 bg-white/10 mx-2"></div>
             <Link href="/login" className="hidden md:flex items-center justify-center text-sm font-medium text-black bg-white hover:bg-emerald-400 hover:text-black px-4 py-2 rounded-full transition-all duration-300">
               Sign In
