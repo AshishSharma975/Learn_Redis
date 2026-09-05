@@ -9,4 +9,4 @@ let {id} = await params
   )
 }
 
-export default page
+export default page;
