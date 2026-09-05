@@ -4,7 +4,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="group relative rounded-2xl bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
       {/* Image Container */}
-      <div className="relative h-72 w-full overflow-hidden bg-white p-8 flex items-center justify-center">
+      <div className="relative h-72 w-full overflow-hidden bg-white dark:bg-white/10 p-8 flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
         <Link href={`/products/${product.id}`} className="relative z-20 w-full h-full flex items-center justify-center">
           <img 

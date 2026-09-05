@@ -3,7 +3,7 @@ import React from 'react'
 
 const Loading = () => {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-slate-900 dark:via-[#0a0a0a] dark:to-black px-4 py-16 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-slate-900 dark:via-[#0a0a0a] dark:to-black px-4 py-16 font-sans">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600 dark:from-emerald-400 dark:to-cyan-400 tracking-tight mb-4">
@@ -20,7 +20,7 @@ const Loading = () => {
             <div key={i} className="rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 overflow-hidden backdrop-blur-xl flex flex-col h-full">
               
               {/* Image Skeleton */}
-              <div className="h-72 w-full bg-white p-8 flex items-center justify-center">
+              <div className="h-72 w-full bg-white dark:bg-white/10 p-8 flex items-center justify-center">
                 <Skeleton className="w-full h-full bg-black/5 dark:bg-white/10 rounded-xl" />
               </div>
 
