@@ -55,7 +55,7 @@ const Login = () => {
               Welcome back
             </h1>
             <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
-              Enter your credentials to access your account
+              Enter your credentials to access your account...
             </p>
           </div>
 
@@ -110,7 +110,7 @@ const Login = () => {
           <div className="mt-8 text-center text-sm font-medium text-slate-500 dark:text-slate-400">
             Don&apos;t have an account?{' '}
             <Link href="/register" className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 transition-colors font-bold underline underline-offset-4 decoration-2 decoration-emerald-500/30 hover:decoration-emerald-500">
-              Create one now
+              Create one now.
             </Link>
           </div>
         </div>
