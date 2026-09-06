@@ -46,7 +46,7 @@ const Navbar = () => {
             <div><ModeToggle /></div>
             <div className="hidden md:block w-px h-6 bg-white/10 mx-2"></div>
             <Link href="/login" className="hidden md:flex items-center justify-center text-sm font-medium text-black bg-white hover:bg-emerald-400 hover:text-black px-4 py-2 rounded-full transition-all duration-300">
-              Sign In
+              Sign In.
             </Link>
           </div>
           
