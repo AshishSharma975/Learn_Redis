@@ -5,6 +5,10 @@ import { RegisterBody } from "@/types/user.types";
 import bcrypt from "bcrypt"
 import { NextRequest, NextResponse } from "next/server";
 import { generateToken } from "@/lib/jwt";
+
+
+
+
 export async function POST(req:NextRequest){
     
   try{
@@ -34,9 +38,14 @@ export async function POST(req:NextRequest){
 
     const token = generateToken({userId:user._id.toString(),email:user.email})
 
-    const response = NextResponse.json<ApiResponse<null>>({
+    const response = NextResponse.json<ApiResponse<any>>({
         success:true,
         message:"User created successfully",
+        data: {
+            id: user._id,
+            name: user.name,
+            email: user.email
+        }   
     },{status:201})
 
     response.cookies.set("token",token,{
@@ -57,3 +66,4 @@ export async function POST(req:NextRequest){
   }
 
 }
+
