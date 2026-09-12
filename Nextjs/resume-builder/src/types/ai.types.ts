@@ -10,3 +10,8 @@ export interface GenerateSkills{
     jobTitle:string;
 }
 
+export interface GenerateProjectDescription {
+    projectName: string;
+    skills?: string[];
+    descriptionContext: string;
+}
