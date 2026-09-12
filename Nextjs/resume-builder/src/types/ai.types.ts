@@ -15,3 +15,10 @@ export interface GenerateProjectDescription {
     skills?: string[];
     descriptionContext: string;
 }
+
+export interface GenerateExperienceDescription {
+    jobTitle: string;
+    companyName: string;
+    skills?: string[];
+    descriptionContext: string;
+}
