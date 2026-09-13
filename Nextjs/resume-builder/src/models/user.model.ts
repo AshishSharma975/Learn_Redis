@@ -15,13 +15,13 @@ const userSchema = new mongoose.Schema<IUser>({
     password:{
         type:String,
         required:[ true , "Password is required"],
-        minLength:[6 , "Password must be at least 6 characters long"]
+        minLength:[6 , "Password must be at least 8 character."]
     },
     mobile:{
         type:String,
         required:false,
         minLength:[10 , "Mobile number must be at least 10 digits long"],
-        maxLength:[10 , "Mobile number must be at most 13 digits long"]
+        maxLength:[10 , "Mobile number must be at most 10 digits long"]
     }
 },
 {timestamps:true}

@@ -22,3 +22,8 @@ export interface GenerateExperienceDescription {
     skills?: string[];
     descriptionContext: string;
 }
+
+export interface ImproveContent {
+    content: string;
+    contentType?: 'summary' | 'experience' | 'project' | 'general';
+}

@@ -3,7 +3,7 @@ import { JWTPayload } from "@/types/user.types"
 
 const generateToken = (payload:JWTPayload):string=>{
     return Jwt.sign(payload, process.env.JWT_SECRET!, {
-        expiresIn: "7d"
+        expiresIn: "5d"
     })
 }
 
